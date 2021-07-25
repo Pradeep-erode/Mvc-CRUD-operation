@@ -1,0 +1,92 @@
+﻿@model IEnumerable<sample_mvc3.Models.studentinfo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+</head>
+
+      
+<body>
+    <div class="list">
+        <h1>Read Operation</h1>
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Second_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Joining_date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Is_deleted)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.First_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Second_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Joining_date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Is_deleted)
+                    </td>
+                    <td>
+                        <div class="btn" style="background-color: cornflowerblue;">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Student_ID, style = "color: orange" }, FormMethod.Post)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="but" style="background-color:orange">
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Student_ID })
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <style>
+        div * {
+            text-decoration: none;
+            border-radius: 3px;
+            padding: 12px;
+        }
+        .list {
+            color:black;
+            background-color: #d3e9f0;
+            padding: 2rem;
+        }
+    </style>
+</body>
+</html>

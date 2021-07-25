@@ -1,0 +1,66 @@
+﻿@model sample_mvc3.Models.studentinfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    @using (Html.BeginForm("Edit", "studentaction", FormMethod.Post))
+    {
+
+    <div class="form-horizontal">
+        <h1>Editing Student Info</h1>
+
+        @Html.HiddenFor(model => model.Student_ID)
+
+        @Html.LabelFor(model => model.First_name)<br>
+
+        @Html.EditorFor(model => model.First_name)<br>
+
+        @Html.LabelFor(model => model.Second_name)<br>
+
+        @Html.EditorFor(model => model.Second_name)<br>
+
+        @Html.LabelFor(model => model.Gender)<br>
+
+        @Html.EditorFor(model => model.Gender)<br>
+
+        @Html.LabelFor(model => model.Department)<br>
+
+        @Html.DropDownList("Department", new List<SelectListItem>
+{ new SelectListItem { Text = "IT", Value = "IT"},
+new SelectListItem { Text = "CSE", Value = "CSE"},
+new SelectListItem { Text = "MECH", Value = "MECH"},
+new SelectListItem { Text = "ECE", Value = "ECE"},
+new SelectListItem { Text = "EEE", Value = "EEE"}  }, "Select Department")<br>
+
+        @Html.LabelFor(model => model.Joining_date)<br>
+
+        @Html.TextBoxFor(model => model.Joining_date, new { type = "date" })
+
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+     }
+
+    @Html.ActionLink("Back to List", "Index","studentaction",null, new { @class = "back" })
+    
+
+    <style>
+        .back {
+            margin-top: 2rem;
+            text-decoration:none;
+        }
+        body {
+            background-color: #d3e9f0;
+            padding: 2rem;
+        }
+     </style>
+</body>
+</html>

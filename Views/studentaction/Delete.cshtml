@@ -1,0 +1,80 @@
+﻿@model sample_mvc3.Models.studentinfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <h1>Delete student Info</h1>
+    @using (Html.BeginForm("Delete", "studentaction", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <th>
+                    @Html.HiddenFor(modelItem => modelItem.Student_ID)
+                    @Html.DisplayNameFor(model => model.First_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Second_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Joining_date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Is_deleted)
+                </th>
+            </tr>
+            <tr>
+                @Html.HiddenFor(modelItem => modelItem.Student_ID)
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.First_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Second_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Joining_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Is_deleted)
+                </td>
+                <td>
+                    <button type="submit" class="dele">Confirm Delete</button>
+                </td>
+            </tr>
+        </table>
+    }
+    <style>
+        .dele {
+            padding: 12px;
+            text-decoration: none;
+            background-color: orange;
+            color: white;
+            border-radius:3px;
+        }
+        body {
+            background-color: #d3e9f0;
+            padding: 2rem;
+        }
+    </style>
+</body>
+
+</html>

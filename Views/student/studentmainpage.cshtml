@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>studentmainpage</title>
+</head>
+<body>
+    @using (Html.BeginForm("Details", "studentController"))
+    {
+        <h3>Search your Details here</h3>
+        @Html.Label("Enter your student ID");
+        @Html.TextBox("id");
+    }
+
+</body>
+</html>

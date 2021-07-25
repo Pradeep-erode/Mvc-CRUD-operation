@@ -1,0 +1,77 @@
+﻿@model IEnumerable<sample_mvc3.Models.studentinfo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Second__name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Joining_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Is_deleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.updated_time)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.First_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Second__name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Joining_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Is_deleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.updated_time)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Student_ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Student_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Student_ID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

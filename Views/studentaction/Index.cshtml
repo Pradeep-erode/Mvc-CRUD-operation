@@ -1,0 +1,65 @@
+﻿@model sample_mvc3.Models.studentinfo
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+    <meta name="viewport" content="width=device-width" />
+    <title>studentmainpage</title>
+</head>
+<body>
+    <div>
+
+        @Html.ActionLink("Show full List", "Details", "studentaction", new { type = "submit", @class = "index" })
+
+        @using (Html.BeginForm("Creating", "studentaction", FormMethod.Post))
+        {
+
+            <h1>Adding a new data</h1>
+            <br>
+            @Html.Label("First name : ")@Html.TextBoxFor(@model => model.First_name) <br><br>
+            @Html.Label("second name : ")@Html.TextBoxFor(@model => model.Second_name)
+            <br><br>
+            @Html.Label("Male")@Html.RadioButtonFor(@model => model.Gender, "Male")
+            @Html.Label("Female")@Html.RadioButtonFor(@model => model.Gender, "Female")
+            <br><br>
+            @Html.Label("Date : ")@Html.TextBoxFor(@model => model.Joining_date, new { type = "date" })
+            <br><br>
+            @Html.Label("Department : ")@Html.DropDownList("Department", new List<SelectListItem>
+{ new SelectListItem { Text = "IT", Value = "IT"},
+new SelectListItem { Text = "CSE", Value = "CSE"},
+new SelectListItem { Text = "MECH", Value = "MECH"},
+new SelectListItem { Text = "ECE", Value = "ECE"},
+new SelectListItem { Text = "EEE", Value = "EEE"}  }, "Select Department")
+            <br><br>
+            <input type="submit" name="Create" />
+        }
+    </div>
+
+   
+</body>
+
+</html>
+<script type="text/javascript">
+    $(function () {
+        window.onsubmit = function () { alert(" @ViewBag.alert "); };
+    });
+
+</script>
+<style>
+    .index {
+        padding: 12px;
+        text-decoration: none;
+        background-color: #90aaab;
+        color: white;
+        border-radius: 3px;
+    }
+    div {
+        padding: 6rem;
+        background-color: #d3e9f0;
+    }
+    </style>
+
